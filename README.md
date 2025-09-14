@@ -34,7 +34,7 @@ npm run dev
 - 📝 **Change History** – View who updated what and when
 ---
 
-Validation is done through next auth
-Provided with search filtering and url based filtering and deboucing
-Couldn't provide CSV Import/Export and pagination as couldn't got enough time 
+- Validation is done through next auth
+- Provided with search filtering and url based filtering and deboucing
+- Couldn't provide CSV Import/Export and pagination as couldn't got enough time 
 ---
