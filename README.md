@@ -36,5 +36,5 @@ npm run dev
 
 - Validation is done through next auth
 - Provided with search filtering and url based filtering and deboucing
-- Couldn't provide CSV Import/Export and pagination as couldn't got enough time 
+- Couldn't provide CSV Import/Export and pagination as didn't got enough time 
 ---
