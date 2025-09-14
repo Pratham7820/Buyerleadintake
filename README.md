@@ -25,3 +25,16 @@ Run the development server
 ```bash
 npm run dev
 ```
+##  Features
+
+- 📊 **Dashboard** – Overview of buyers  
+- ➕ **Create Buyer** – Add new buyer profiles  
+- 👤 **View Buyer** – See buyer details with notes  
+- ✏️ **Edit Buyer** – Update details with automatic history tracking  
+- 📝 **Change History** – View who updated what and when
+---
+
+Validation is done through next auth
+Provided with search filtering and url based filtering and deboucing
+Couldn't provide CSV Import/Export and pagination as couldn't got enough time 
+---
