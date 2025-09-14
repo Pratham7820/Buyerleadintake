@@ -1,0 +1,110 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id@default(uuid())
+  name String
+  email String @unique
+  password String
+  buyer Buyer[]
+  buyerhistory Buyerhistory[]
+}
+
+model Buyer {
+  id String @id@default(uuid())
+  fullName String
+  email String?
+  phone String
+  city Citys
+  propertyType PropertyTypes
+  bhk Bhksize?
+  purpose Purposes
+  budgetMin Int?
+  budgetMax Int?
+  timeline Timelines
+  source Sources
+  status StatusType @default(New)
+  notes String?
+  user User @relation(fields: [ownerId], references: [id])
+  ownerId String
+  updatedAt DateTime @updatedAt
+  buyerhistory Buyerhistory[]
+  @@index([phone])
+  @@index([city])
+}
+
+model Buyerhistory {
+  id String @id@default(uuid())
+  buyer Buyer @relation(fields: [buyerId] , references: [id])
+  buyerId String
+  user User @relation(fields: [changedBy] , references: [id])
+  changedBy String
+  changedAt DateTime
+  diff String
+}
+
+enum Citys {
+  Chandigarh
+  Mohali
+  Zirakpur
+  Panchkula
+  Other
+}
+
+enum PropertyTypes {
+  Apartment
+  Villa
+  Plot
+  Office
+  Retail
+}
+
+enum Bhksize {
+  One
+  Two
+  Three
+  Four
+  Studio
+}
+
+enum Purposes {
+  Buy
+  Rent
+}
+
+enum Timelines {
+  ZerotoThree
+  ThreetoSix
+  GreaterthanSix
+  Exploring
+}
+
+enum Sources {
+  Website
+  Referral
+  Walkin
+  Call
+  Other
+}
+
+enum StatusType {
+  New
+  Qualified
+  Contacted
+  Visited
+  Negotiation
+  Converted
+  Dropped
+}
