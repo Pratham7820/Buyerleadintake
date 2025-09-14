@@ -14,10 +14,11 @@ yarn install
 ```
 
 Configure Environment Variables
-Create a .env.local file:
+Create a .env file:
 ```bash
 DATABASE_URL=your_database_url
 NEXTAUTH_SECRET=your_secret_key
+NEXTAUTH_URL=http://localhost:3000
 ```
 
 Run the development server
